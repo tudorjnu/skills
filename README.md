@@ -18,7 +18,9 @@ Each skill is a folder under `skills/` with a `SKILL.md` and `agents/openai.yaml
 
 - [`skills/engineering/`](./skills/engineering/) — core project workflow.
 - [`skills/productivity/`](./skills/productivity/) — personal workflow.
-- [`skills/tools/`](./skills/tools/) — auxiliary helpers.
+- [`skills/tools/`](./skills/tools/) — technical tooling like git.
+- [`skills/helpers/`](./skills/helpers/) — reusable agent capabilities.
+- [`skills/other/`](./skills/other/) — skills awaiting a better grouping.
 
 ## Conventions
 
