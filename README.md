@@ -2,7 +2,7 @@
 
 Personal agent skills for pi. Forked from [Matt Pocock's skills](https://github.com/mattpocock/skills).
 
-Small, composable runbooks for engineering and productivity. Make them your own.
+Small, composable runbooks for engineering, productivity, and tooling. Make them your own.
 
 ## Install
 
@@ -16,8 +16,9 @@ Each skill is a folder under `skills/` with a `SKILL.md` and `agents/openai.yaml
 
 ## Buckets
 
-- [`skills/engineering/`](./skills/engineering/) — code work.
-- [`skills/productivity/`](./skills/productivity/) — general workflow tools.
+- [`skills/engineering/`](./skills/engineering/) — core project workflow.
+- [`skills/productivity/`](./skills/productivity/) — personal workflow.
+- [`skills/tools/`](./skills/tools/) — auxiliary helpers.
 
 ## Conventions
 
