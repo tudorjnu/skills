@@ -46,4 +46,3 @@ Next: {suggested next step}
 ```
 
 End with a suggested next step. If there is open work, ask whether to pick one up. If not, ask what the user wants to build.
-
