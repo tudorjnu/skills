@@ -13,6 +13,7 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 ### Planning work
 
 - [`/user-story`](./skills/engineering/user-story/SKILL.md) when turning a user need into development-ready stories with acceptance criteria.
+- [`/design-direction`](./skills/engineering/design-direction/SKILL.md) when creating a visual direction before building or reshaping UI.
 - [`/to-spec`](./skills/engineering/to-spec/SKILL.md) when the conversation is ready to become a spec.
 - [`/to-tickets`](./skills/engineering/to-tickets/SKILL.md) when breaking a spec or plan into tracer-bullet tickets.
 
@@ -23,7 +24,8 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 
 ### Writing style
 
-For any prose, use [`/unslop`](./skills/helpers/unslop/SKILL.md) to strip AI patterns and add a human voice.
+- For any prose, use [`/unslop`](./skills/helpers/unslop/SKILL.md) to strip AI patterns and add a human voice.
+- If you are unsure which skill fits, use [`/which`](./skills/helpers/which/SKILL.md).
 
 ### Testing
 

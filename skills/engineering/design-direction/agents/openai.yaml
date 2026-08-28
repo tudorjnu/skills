@@ -1,0 +1,5 @@
+interface:
+  display_name: "Design Direction"
+  short_description: "Create a durable visual design direction"
+policy:
+  allow_implicit_invocation: false

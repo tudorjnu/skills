@@ -1,6 +1,6 @@
 ---
 name: which
-description: "Use when the user is unsure which skill fits their situation, or says 'what should I do now', 'which skill', 'help', or 'not sure where to start'. Maps the situation to the right skill and explains why."
+description: Find the right skill for your current situation. The user invokes this when they are unsure what to do next.
 disable-model-invocation: true
 ---
 
@@ -25,6 +25,7 @@ Pick the most relevant skill from the current setup and explain why:
 | --- | --- |
 | New repo, onboarding | `/init` |
 | "I want to build/change something" but unclear how | `/brainstorm` |
+| Need to create a visual direction before building UI | `/design-direction` |
 | Have a user need and want to turn it into stories | `/user-story` |
 | Need to understand how a subsystem works | `/how` |
 | Want to know why code was built this way | `/why` |
