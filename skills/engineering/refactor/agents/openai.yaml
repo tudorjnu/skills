@@ -1,0 +1,5 @@
+interface:
+  display_name: "Refactor"
+  short_description: "Improve code structure without changing behavior"
+policy:
+  allow_implicit_invocation: false
