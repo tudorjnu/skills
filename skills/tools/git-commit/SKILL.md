@@ -6,11 +6,11 @@ allowed-tools: Bash
 disable-model-invocation: true
 ---
 
-# Git Commit with Conventional Commits
+# Git commit with Conventional Commits
 
-Create standardized, semantic git commits using the Conventional Commits specification. Analyze the actual diff to determine the appropriate type, scope, and message.
+Create a Conventional Commit from the actual diff. Choose the type, scope, and message from what changed.
 
-## Conventional Commit Format
+## Conventional Commit format
 
 ```
 <type>[optional scope]: <description>
@@ -20,7 +20,7 @@ Create standardized, semantic git commits using the Conventional Commits specifi
 [optional footer(s)]
 ```
 
-## Commit Types
+## Commit types
 
 | Type       | Purpose                        |
 | ---------- | ------------------------------ |
@@ -36,7 +36,7 @@ Create standardized, semantic git commits using the Conventional Commits specifi
 | `chore`    | Maintenance/misc               |
 | `revert`   | Revert commit                  |
 
-## Breaking Changes
+## Breaking changes
 
 ```
 # Exclamation mark after type/scope
@@ -50,7 +50,7 @@ BREAKING CHANGE: `extends` key behavior changed
 
 ## Workflow
 
-### 1. Analyze Diff
+### 1. Analyze the diff
 
 ```bash
 # If files are staged, use staged diff
@@ -63,7 +63,7 @@ git diff
 git status --porcelain
 ```
 
-### 2. Stage Files (if needed)
+### 2. Stage files if needed
 
 If nothing is staged or you want to group changes differently:
 
@@ -81,15 +81,15 @@ git add -p
 
 **Never commit secrets** (.env, credentials.json, private keys).
 
-### 3. Generate Commit Message
+### 3. Write the commit message
 
-Analyze the diff to determine:
+Use the diff to determine:
 
 - **Type**: What kind of change is this?
 - **Scope**: What area/module is affected?
 - **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
 
-### 4. Execute Commit
+### 4. Commit
 
 ```bash
 # Single line
@@ -106,7 +106,7 @@ EOF
 )"
 ```
 
-## Best Practices
+## Rules
 
 - One logical change per commit
 - Present tense: "add" not "added"
@@ -114,7 +114,7 @@ EOF
 - Reference issues: `Closes #123`, `Refs #456`
 - Keep description under 72 characters
 
-## Git Safety Protocol
+## Git safety
 
 - NEVER update git config
 - NEVER run destructive commands (--force, hard reset) without explicit request
