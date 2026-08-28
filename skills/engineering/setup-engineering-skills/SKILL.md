@@ -89,3 +89,9 @@ For "other" trackers, write `docs/agents/issue-tracker.md` from scratch using th
 ### 5. Done
 
 Tell the user setup is complete and which skills will read these files. They can edit `docs/agents/*.md` directly later. Re-run this skill only to switch trackers or start from scratch.
+
+## How the engineering skills work
+
+- Use subagents for parallel work or whenever a separate context window would help.
+- Read `CONTEXT.md` and ADRs before touching code in an area.
+- Stop and ask on architectural decisions; do not decide them silently.

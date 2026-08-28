@@ -21,6 +21,10 @@ The Skill tool takes one skill per call. A step that needs two skills is two cal
 
 This whole convention only holds when the named skill is **model-invoked**. A user-invoked skill can never be reached this way, full stop: per the invariant above, no other skill can call it, including by naming it to the Skill tool. When a step's precondition is a user-invoked skill (e.g. `setup-engineering-skills`), phrase it as an instruction for the human to act on: "tell the user to run `/setup-engineering-skills`", never as a Skill tool call.
 
+## Subagents
+
+Use subagents for work that can run in parallel or that benefits from a separate context window. Spawn a subagent when the task is self-contained and a fresh context would avoid pollution. Do not use a subagent for a single linear read or edit that fits in the current context.
+
 ## Passive vs active domain work
 
 Merely _reading_ `CONTEXT.md` for vocabulary is a one-line prose pointer, not the `domain-modeling` skill. Only the active build/sharpen discipline (challenge terms, edge-case scenarios, write ADRs, update `CONTEXT.md` inline) is `domain-modeling`.
