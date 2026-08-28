@@ -1,7 +1,7 @@
 {
   "name": "tudorjnu-skills",
   "version": "1.2.3",
-  "description": "Tudor's agent skills for pi: grilling, spec/ticket flows, domain modelling, code review, and helper tools. Composable, not vibe coding.",
+  "description": "Tudor's agent skills for pi: brainstorming, grilling, spec/ticket flows, refactoring, domain modelling, code review, and helper tools. Composable, not vibe coding.",
   "author": {
     "name": "Tudor",
     "url": "https://github.com/tudorjnu"
@@ -18,6 +18,7 @@
     "productivity"
   ],
   "skills": [
+    "./skills/engineering/brainstorm",
     "./skills/engineering/codebase-design",
     "./skills/engineering/code-review",
     "./skills/engineering/diagnosing-bugs",
@@ -25,7 +26,9 @@
     "./skills/engineering/grill-with-domain",
     "./skills/engineering/implement",
     "./skills/engineering/improve-codebase-architecture",
+    "./skills/engineering/init",
     "./skills/engineering/prototype",
+    "./skills/engineering/refactor",
     "./skills/engineering/setup-engineering-skills",
     "./skills/engineering/tdd",
     "./skills/engineering/to-spec",
