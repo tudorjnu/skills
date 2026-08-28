@@ -1,6 +1,6 @@
 ---
 name: brainstorm
-description: "Help the user navigate an idea before implementation. Use when the user wants to build, change, or explore something and the right next step is unclear."
+description: "Use when the user says 'I want to build', 'I want to add', 'how would I', 'what if we', 'explore', 'design', 'figure out', 'think through', or any request to change or create something where the path is unclear. Classify the work, surface the choices, and agree on the next step. Do not implement."
 ---
 
 # Brainstorm
