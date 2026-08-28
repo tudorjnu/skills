@@ -16,11 +16,11 @@ Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `age
 
 ## Buckets
 
-- [`skills/engineering/`](./skills/engineering/) — core project workflow.
-- [`skills/productivity/`](./skills/productivity/) — personal workflow.
-- [`skills/tools/`](./skills/tools/) — technical tooling like git.
-- [`skills/helpers/`](./skills/helpers/) — reusable agent capabilities.
-- [`skills/other/`](./skills/other/) — skills I have not found a home for yet.
+- [`skills/engineering/`](./skills/engineering/) - core project workflow.
+- [`skills/productivity/`](./skills/productivity/) - personal workflow.
+- [`skills/tools/`](./skills/tools/) - technical tooling like git.
+- [`skills/helpers/`](./skills/helpers/) - reusable agent capabilities.
+- [`skills/other/`](./skills/other/) - skills I have not found a home for yet.
 
 ## Conventions
 
