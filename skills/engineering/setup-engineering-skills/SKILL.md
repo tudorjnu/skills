@@ -6,49 +6,49 @@ disable-model-invocation: true
 
 # Setup Tudor's Skills
 
-Scaffold the per-repo configuration that the engineering skills assume:
+Create the per-repo config the engineering skills expect:
 
-- **Issue tracker**: where issues live (GitHub by default; local markdown is also supported out of the box)
-- **Domain docs**: where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
+- **Issue tracker**: where issues live
+- **Domain docs**: where `CONTEXT.md` and ADRs live, and how to read them
 
-This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
+This is prompt-driven, not scripted. Explore, summarize, confirm, then write.
 
 ## Process
 
 ### 1. Explore
 
-Look at the current repo to understand its starting state. Read whatever exists; don't assume:
+Read whatever exists; do not assume:
 
 - `git remote -v` and `.git/config`: is this a GitHub repo? Which one?
 - `AGENTS.md` at the repo root: does it exist? Is there already an `## Agent skills` section?
 - `CONTEXT.md` and `CONTEXT-MAP.md` at the repo root
 - `docs/adr/` and any `src/*/docs/adr/` directories
-- `docs/agents/`: does this skill's prior output already exist?
-- `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
-- Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
+- `docs/agents/`: does prior output already exist?
+- `.scratch/`: a sign that a local-markdown issue tracker is already in use
+- Monorepo signals: `pnpm-workspace.yaml`, `workspaces` in `package.json`, or populated `packages/*` with their own `src/`. These only appear in genuinely large multi-package repos; their absence means single-context, which is almost every repo.
 
 ### 2. Present findings and ask
 
-Summarise what's present and what's missing. Then take the sections in order. One section, one answer, then the next.
+Summarize what is present and what is missing. Take the sections in order. One section, one answer, then the next.
 
-Lead each section with the recommended answer so the user can accept it in a word. Give a one-line explainer only when the choice genuinely branches; skip the section entirely when exploration already settled it (Section C when there's no monorepo).
+Lead with the recommended answer so the user can accept it in one word. Explain only when the choice genuinely branches. Skip a section when exploration already settled it (Section C when there is no monorepo).
 
 **Section A: Issue tracker.**
 
-> Explainer: The "issue tracker" is where issues live for this repo. Skills like `to-tickets` and `to-spec` read from and write to it. They need to know whether to call `gh issue create`, write a markdown file under `.scratch/`, or follow some other workflow you describe. Pick the place you actually track work for this repo.
+> The issue tracker is where this repo keeps issues. Skills like `to-tickets` and `to-spec` read from and write to it. They need to know whether to call `gh issue create`, write a file under `.scratch/`, or follow some other workflow.
 
-Default posture: these skills were designed for GitHub. If a `git remote` points at GitHub, propose that. If a `git remote` points at GitLab (`gitlab.com` or a self-hosted host), propose GitLab. Otherwise (or if the user prefers), offer:
+Default to GitHub if `git remote` points there. Default to GitLab if it points to `gitlab.com` or a self-hosted GitLab. Otherwise, or if the user prefers, offer:
 
-- **GitHub**: issues live in the repo's GitHub Issues (uses the `gh` CLI)
-- **GitLab**: issues live in the repo's GitLab Issues (uses the [`glab`](https://gitlab.com/gitlab-org/cli) CLI)
-- **Local markdown**: issues live as files under `.scratch/<feature>/` in this repo (good for solo projects or repos without a remote)
-- **Other** (Jira, Linear, etc.): ask the user to describe the workflow in one paragraph; the skill will record it as freeform prose
+- **GitHub**: uses the `gh` CLI
+- **GitLab**: uses the [`glab`](https://gitlab.com/gitlab-org/cli) CLI
+- **Local markdown**: files under `.scratch/<feature>/` in this repo (good for solo projects or repos without a remote)
+- **Other** (Jira, Linear, etc.): the user describes the workflow in one paragraph; record it as freeform prose
 
 Record the choice in `docs/agents/issue-tracker.md`.
 
-**Section C: Domain docs.** Default to **single-context** (one `CONTEXT.md` + `docs/adr/` at the repo root). This fits almost every repo; write it without asking.
+**Section C: Domain docs.** Default to **single-context**: one `CONTEXT.md` and `docs/adr/` at the repo root. This fits almost every repo; write it without asking.
 
-Offer **multi-context** (a root `CONTEXT-MAP.md` pointing to per-context `CONTEXT.md` files) only when exploration found monorepo signals. Then confirm which layout they want.
+Offer **multi-context** (root `CONTEXT-MAP.md` pointing to per-context `CONTEXT.md` files) only if you found monorepo signals. Then confirm which layout they want.
 
 ### 3. Confirm and edit
 
@@ -61,9 +61,7 @@ Let them edit before writing.
 
 ### 4. Write
 
-Edit `AGENTS.md` at the repo root.
-
-If an `## Agent skills` block already exists, update it in-place. Never create `CLAUDE.md`.
+Edit `AGENTS.md` at the repo root. If an `## Agent skills` block already exists, update it in-place. Never create `CLAUDE.md`.
 
 The block:
 
@@ -72,22 +70,22 @@ The block:
 
 ### Issue tracker
 
-[one-line summary of where issues are tracked]. See `docs/agents/issue-tracker.md`.
+[one-line summary]. See `docs/agents/issue-tracker.md`.
 
 ### Domain docs
 
-[one-line summary of layout: "single-context" or "multi-context"]. See `docs/agents/domain.md`.
+[one-line summary: "single-context" or "multi-context"]. See `docs/agents/domain.md`.
 ```
 
-Then write the docs files using the seed templates in this skill folder as a starting point:
+Then write the docs files from the seed templates in this skill folder:
 
-- [issue-tracker-github.md](./issue-tracker-github.md): GitHub issue tracker
-- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md): GitLab issue tracker
-- [issue-tracker-local.md](./issue-tracker-local.md): local-markdown issue tracker
-- [domain.md](./domain.md): domain doc consumer rules + layout
+- [issue-tracker-github.md](./issue-tracker-github.md)
+- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md)
+- [issue-tracker-local.md](./issue-tracker-local.md)
+- [domain.md](./domain.md)
 
-For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
+For "other" trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
 ### 5. Done
 
-Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` directly later; re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
+Tell the user setup is complete and which skills will read these files. They can edit `docs/agents/*.md` directly later. Re-run this skill only to switch trackers or start from scratch.
