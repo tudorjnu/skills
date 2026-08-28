@@ -10,6 +10,11 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 - [`/brainstorm`](./skills/engineering/brainstorm/SKILL.md) when the user wants to build or change something and the path is unclear.
 - [`/setup-engineering-skills`](./skills/engineering/setup-engineering-skills/SKILL.md) if the repo has no `AGENTS.md` or `docs/agents/` config.
 
+### Understanding the code
+
+- [`/how`](./skills/engineering/how/SKILL.md) for "how does X work" or "where should this live".
+- [`/why`](./skills/engineering/why/SKILL.md) for "why was this built this way" or design rationale.
+
 ### Writing style
 
 For any prose, use [`/unslop`](./skills/helpers/unslop/SKILL.md) to strip AI patterns and add a human voice.
