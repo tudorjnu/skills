@@ -40,6 +40,7 @@
     "./skills/helpers/research",
     "./skills/helpers/unslop",
     "./skills/helpers/wait-what",
+    "./skills/helpers/which",
     "./skills/helpers/wizard",
     "./skills/other/to-questionnaire",
     "./skills/other/writing-for-agents",
