@@ -1,6 +1,6 @@
 # Agent Skills
 
-This repo uses agent skills from [tudorjnu/skills](https://github.com/tudorjnu/skills).
+This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills).
 
 ## Agent skills
 
@@ -14,8 +14,8 @@ This repo uses agent skills from [tudorjnu/skills](https://github.com/tudorjnu/s
 
 ### Writing style
 
-When producing or editing prose, use the [`/unslop`](./skills/helpers/unslop/SKILL.md) skill to remove AI patterns and add human voice.
+For any prose, use [`/unslop`](./skills/helpers/unslop/SKILL.md) to strip AI patterns and add a human voice.
 
 ### Manual operations
 
-For steps only a human can perform (provisioning infrastructure, setting up secrets, running one-off migrations), use the [`/wizard`](./skills/helpers/wizard/SKILL.md) skill.
+For steps only a human can do, like provisioning infrastructure, setting up secrets, or running a one-off migration, use [`/wizard`](./skills/helpers/wizard/SKILL.md).
