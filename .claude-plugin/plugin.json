@@ -18,6 +18,7 @@
     "productivity"
   ],
   "skills": [
+    "./skills/engineering/architecture/api-design",
     "./skills/engineering/architecture/frontend-design",
     "./skills/engineering/architecture/rest-api-design",
     "./skills/engineering/brainstorm",

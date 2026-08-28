@@ -19,6 +19,7 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 
 ### Architecture and design
 
+- [`/api-design`](./skills/engineering/architecture/api-design/SKILL.md) before designing or changing any API surface.
 - [`/frontend-design`](./skills/engineering/architecture/frontend-design/SKILL.md) before building or reshaping frontend UI.
 - [`/rest-api-design`](./skills/engineering/architecture/rest-api-design/SKILL.md) before designing or changing REST API endpoints.
 

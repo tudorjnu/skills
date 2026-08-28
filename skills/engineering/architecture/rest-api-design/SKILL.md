@@ -107,4 +107,4 @@ Apply its rules first. If the requested change contradicts `API.md`, tell the us
 
 ## If API.md is missing
 
-Proceed with the practices above. If the API is large or the team needs a written direction, suggest creating `API.md` by running `/api-direction`.
+Proceed with the practices above. If the API is large or the team needs a written direction, suggest creating `API.md` to capture the direction.
