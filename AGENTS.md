@@ -10,6 +10,12 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 - [`/brainstorm`](./skills/engineering/brainstorm/SKILL.md) when the user wants to build or change something and the path is unclear.
 - [`/setup-engineering-skills`](./skills/engineering/setup-engineering-skills/SKILL.md) if the repo has no `AGENTS.md` or `docs/agents/` config.
 
+### Planning work
+
+- [`/user-story`](./skills/engineering/user-story/SKILL.md) when turning a user need into development-ready stories with acceptance criteria.
+- [`/to-spec`](./skills/engineering/to-spec/SKILL.md) when the conversation is ready to become a spec.
+- [`/to-tickets`](./skills/engineering/to-tickets/SKILL.md) when breaking a spec or plan into tracer-bullet tickets.
+
 ### Understanding the code
 
 - [`/how`](./skills/engineering/how/SKILL.md) for "how does X work" or "where should this live".

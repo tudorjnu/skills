@@ -10,7 +10,7 @@ The issue tracker should have been configured for this repo. If not, tell the us
 
 ## Process
 
-1. Explore the repo if you have not already. Use the project's domain glossary throughout the spec and respect ADRs in the area you are changing.
+1. Explore the repo if you have not already. Use the project's domain glossary throughout the spec and respect ADRs in the area you are changing. If `docs/STORIES.md` exists, read it and use it as source material for user stories. If the spec diverges from what is written there, tell the user what changed and why.
 
 2. List the seams where the feature will be tested. Prefer existing seams and use the highest seam that covers the behavior. If a new seam is needed, place it as high as possible. Fewer seams are better; one is ideal.
 

@@ -14,7 +14,7 @@ The issue tracker should have been configured for this repo. If not, tell the us
 
 ### 1. Gather context
 
-Use the context already in the conversation. If the user passes a spec path, issue number, or URL, fetch it and read the full body and comments.
+Use the context already in the conversation. If the user passes a spec path, issue number, or URL, fetch it and read the full body and comments. If `docs/STORIES.md` exists, read it and use it as source material for ticket titles and descriptions. If the breakdown diverges from what is written there, tell the user what changed and why.
 
 ### 2. Explore the codebase (optional)
 
