@@ -14,6 +14,10 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 
 For any prose, use [`/unslop`](./skills/helpers/unslop/SKILL.md) to strip AI patterns and add a human voice.
 
+### Testing
+
+Do not write tests by default. Tests are deliberate investments, not ceremony. Write them when the user asks, when the seam is clear and stable, or when using [`/tdd`](./skills/engineering/tdd/SKILL.md). Do not add tests just to satisfy a checklist.
+
 ### Manual operations
 
 For steps only a human can do, like provisioning infrastructure, setting up secrets, or running a one-off migration, use [`/wizard`](./skills/helpers/wizard/SKILL.md).
