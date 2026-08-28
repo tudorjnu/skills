@@ -26,6 +26,7 @@ Pick the most relevant skill from the current setup and explain why:
 | New repo, onboarding | `/init` |
 | "I want to build/change something" but unclear how | `/brainstorm` |
 | Need to create a visual direction before building UI | `/design-direction` |
+| Want to design or change REST API endpoints | `/rest-api-design` |
 | Have a user need and want to turn it into stories | `/user-story` |
 | Need to understand how a subsystem works | `/how` |
 | Want to know why code was built this way | `/why` |

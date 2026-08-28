@@ -17,6 +17,11 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 - [`/to-spec`](./skills/engineering/to-spec/SKILL.md) when the conversation is ready to become a spec.
 - [`/to-tickets`](./skills/engineering/to-tickets/SKILL.md) when breaking a spec or plan into tracer-bullet tickets.
 
+### Architecture and design
+
+- [`/frontend-design`](./skills/engineering/architecture/frontend-design/SKILL.md) before building or reshaping frontend UI.
+- [`/rest-api-design`](./skills/engineering/architecture/rest-api-design/SKILL.md) before designing or changing REST API endpoints.
+
 ### Understanding the code
 
 - [`/how`](./skills/engineering/how/SKILL.md) for "how does X work" or "where should this live".

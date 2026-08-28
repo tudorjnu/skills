@@ -1,0 +1,3 @@
+interface:
+  display_name: "REST API Design"
+  short_description: "Apply REST conventions when designing endpoints"
