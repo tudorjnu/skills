@@ -1,12 +1,13 @@
 ---
 name: git-commit
-description: 'Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use whenever the user asks you to perform a commit, asks to commit changes, create a git commit, or mentions "/commit". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping.'
+description: 'Execute git operations with conventional commit message analysis, intelligent staging, and message generation. Use whenever the user mentions git, commit, staging, diff, log, rebase, or any other source-control task: analyze the diff, suggest or generate a conventional commit message, stage files safely, and create commits.'
 license: MIT
 allowed-tools: Bash
-disable-model-invocation: true
 ---
 
-# Git commit with Conventional Commits
+# Git operations with Conventional Commits
+
+Handle git operations safely, with a focus on producing clean Conventional Commits from the actual diff.
 
 Create a Conventional Commit from the actual diff. Choose the type, scope, and message from what changed.
 
