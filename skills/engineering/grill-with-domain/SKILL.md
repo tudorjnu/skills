@@ -1,6 +1,6 @@
 ---
-name: grill-with-docs
-description: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+name: grill-with-domain
+description: A relentless interview to sharpen a plan or design, which also updates the domain docs (glossary and ADRs) as we go.
 disable-model-invocation: true
 ---
 
