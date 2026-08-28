@@ -33,7 +33,7 @@ The subagent should read only what it needs; do not dump every file.
 
 ## 3. Present the summary
 
-Report back in a short, scannable form:
+Report back in a short, scannable form. Do not change any files in the repo.
 
 ```
 Repo: {name}
@@ -42,6 +42,8 @@ Entry points: {list}
 Domain terms: {list or "none yet"}
 Open work: {count + links, or "none"}
 Risks: {list or "none obvious"}
+Next: {suggested next step}
 ```
 
-If there is open work, ask the user whether to pick one up. If not, ask what they want to build.
+End with a suggested next step. If there is open work, ask whether to pick one up. If not, ask what the user wants to build.
+
