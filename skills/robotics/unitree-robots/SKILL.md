@@ -51,6 +51,8 @@ Applying `unitree_go` message types to G1/G1D code is a hard error: the layouts 
 
 ## Install
 
+How the SDK is installed, for reference. Setup is the user's action: present the steps and let the user run them.
+
 ```bash
 # C++
 git clone https://github.com/unitreerobotics/unitree_sdk2.git
@@ -69,9 +71,9 @@ The officially supported SDK platform is Ubuntu 20.04 LTS, x86_64 and aarch64; W
 
 That is a statement about where the SDK is supported, not permission to run Ubuntu commands on whatever machine you are on:
 
-- Detect before acting: read `/etc/os-release` and `uname -m` before any system or package command, and use the package manager of the distro you actually find. Never assume apt.
-- Do not install things as a side effect of writing robot code. Installing the SDK, CycloneDDS, or system packages is a deliberate setup step: propose it, get the user's approval, and record it.
-- Commands intended for the robot's PC go over SSH to 192.168.123.164, not the local shell.
+- Detect before acting: read `/etc/os-release` and `uname -m` so the instructions you give match the machine. Never assume apt.
+- Never run package managers or installers yourself, and never install as a side effect of writing robot code. When something is missing (SDK, CycloneDDS, system packages), instruct the user: name what is needed and give the exact command for their distro. The user runs it; you record the outcome.
+- Commands intended for the robot's PC belong on 192.168.123.164 over SSH. Hand the user those commands too; do not execute installs on the robot's PC yourself.
 - A non-Ubuntu workstation is unofficial territory: the Python SDK may work there if cyclonedds 0.10.2 can be built, but verify instead of assuming, and never resolve an OS mismatch by installing Ubuntu packages on a non-Ubuntu host.
 - If the repo has `docs/agents/robots.md` (written by /setup-robotics-skills), read it first: it records this workstation's actual OS and setup.
 
@@ -86,7 +88,7 @@ That is a statement about where the SDK is supported, not permission to run Ubun
 | unitree_model on GitHub | Hugging Face dataset |
 | Trusting the unitree_ros2 README robot list | README is stale; G1 examples are in the repo |
 | Assuming the workstation is Ubuntu | Detect the distro first (`/etc/os-release`); the Ubuntu target is the robot's Jetson over SSH |
-| Installing SDK or system packages mid-task | Deliberate setup: propose it, get approval, record it |
+| Running package managers or installers yourself | Instruct the user with the exact command for their OS; the user runs it |
 | Skipping CycloneDDS setup | 0.10.2, domain 0, correct interface in CYCLONEDDS_URI |
 
 ## What to defer to the web

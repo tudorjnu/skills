@@ -15,7 +15,7 @@ The Unitree fleet this repo controls, recorded by `/setup-robotics-skills` on [d
 - Architecture: [uname -m]
 - Package manager: [apt / pacman / dnf / brew / ...]
 - SDK here: [yes / no — does `python3 -c "import cyclonedds"` work?]
-- Rule: run system commands for this OS only. Ubuntu-only steps run on the robot's Jetson over SSH (192.168.123.164). Ask before installing anything.
+- Rule: do not run package managers or installers yourself. Instruct the user with the exact command for this OS; Ubuntu-only steps go to the robot's Jetson over SSH (192.168.123.164).
 
 ## Network
 

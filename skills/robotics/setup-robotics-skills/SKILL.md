@@ -64,7 +64,7 @@ They are installed under `~/.agents/skills/`. Update them from the skills repo w
 
 Hard rules until the skills are loaded:
 
-- This workstation runs [OS from /etc/os-release]. Detect the OS before any system or package command, use that distro's package manager, and ask before installing anything. Ubuntu-only setup steps belong on the robot's Jetson (SSH 192.168.123.164).
+- This workstation runs [OS from /etc/os-release]. Do not run package managers or installers yourself: instruct the user with the exact command for this OS and let them run it. Ubuntu-only setup steps belong on the robot's Jetson (SSH 192.168.123.164).
 - G1 and G1D are different robots. G1 walks; G1D has a fixed or wheeled base and no leg actuators.
 - Never assume DOF counts or joint indices; read them from the robot (`mode_machine`) or the skill's joint tables.
 - On G1, low-level `rt/lowcmd` control requires `MotionSwitcherClient::ReleaseMode()` first.
