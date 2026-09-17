@@ -40,3 +40,7 @@ Do not write tests by default. Tests are deliberate investments, not ceremony. W
 ### Manual operations
 
 For steps only a human can do, like provisioning infrastructure, setting up secrets, or running a one-off migration, use [`/wizard`](./skills/helpers/wizard/SKILL.md).
+
+### Robotics
+
+Unitree robot facts load automatically when robot work is detected: [`unitree-robots`](./skills/robotics/unitree-robots/SKILL.md) for the shared SDK stack, [`unitree-g1`](./skills/robotics/unitree-g1/SKILL.md) for the bipedal humanoid, and [`unitree-g1d`](./skills/robotics/unitree-g1d/SKILL.md) for the dual-arm platform. Run [`/setup-robotics-skills`](./skills/robotics/setup-robotics-skills/SKILL.md) in a robotics repo to wire that repo's AGENTS.md to the fleet.

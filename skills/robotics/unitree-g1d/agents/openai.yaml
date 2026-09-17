@@ -1,0 +1,3 @@
+interface:
+  display_name: "Unitree G1D"
+  short_description: "G1D dual-arm platform, AGV control, and G1 differences"

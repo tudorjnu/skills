@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Robotics Skills"
+  short_description: "Wire a robotics repo to the Unitree skills"
+policy:
+  allow_implicit_invocation: false

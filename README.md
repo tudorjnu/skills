@@ -21,6 +21,7 @@ Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `age
 - [`skills/tools/`](./skills/tools/) - technical tooling like git.
 - [`skills/helpers/`](./skills/helpers/) - reusable agent capabilities.
 - [`skills/other/`](./skills/other/) - skills I have not found a home for yet.
+- [`skills/robotics/`](./skills/robotics/) - Unitree robot facts (G1, G1D, shared SDK stack) plus /setup-robotics-skills for wiring robot repos.
 
 ## Conventions
 
