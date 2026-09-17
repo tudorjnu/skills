@@ -12,7 +12,9 @@ Link the skills into `~/.agents/skills`, grouped by bucket:
 ./scripts/link-skills.sh
 ```
 
-Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `agents/openai.yaml`. The install preserves the buckets, so skills land at `~/.agents/skills/<bucket>/<name>`; older flat installs are migrated automatically. Prefer this over the `npx skills` CLI for this repo: the CLI copies skills flat and loses the grouping.
+Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `agents/openai.yaml`. The install preserves the buckets, so skills land at `~/.agents/skills/<bucket>/<name>`; older flat installs are migrated automatically.
+
+The `npx skills` CLI groups this repo's skills by the plugin names in `.claude-plugin/marketplace.json` (one per bucket: Tudorjnu Architecture, Tudorjnu Engineering, and so on) in its install and list views, but writes flat to disk. Run `./scripts/link-skills.sh` after any `skills add` or `skills update` to restore the bucketed layout. When you add a skill to the repo, also add its path to `.claude-plugin/marketplace.json` under the right bucket plugin.
 
 ## Buckets
 
