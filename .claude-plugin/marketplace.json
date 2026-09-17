@@ -3,7 +3,7 @@
   "owner": "tudorjnu",
   "plugins": [
     {
-      "name": "tudorjnu-architecture",
+      "name": "architecture",
       "source": "./",
       "skills": [
         "./skills/engineering/architecture/api-design",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "name": "tudorjnu-engineering",
+      "name": "engineering",
       "source": "./",
       "skills": [
         "./skills/engineering/brainstorm",
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "name": "tudorjnu-helpers",
+      "name": "helpers",
       "source": "./",
       "skills": [
         "./skills/helpers/handoff",
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "name": "tudorjnu-misc",
+      "name": "misc",
       "source": "./",
       "skills": [
         "./skills/other/to-questionnaire",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "name": "tudorjnu-productivity",
+      "name": "productivity",
       "source": "./",
       "skills": [
         "./skills/productivity/grilling",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "name": "tudorjnu-robotics",
+      "name": "robotics",
       "source": "./",
       "skills": [
         "./skills/robotics/setup-robotics-skills",
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "name": "tudorjnu-tools",
+      "name": "tools",
       "source": "./",
       "skills": [
         "./skills/tools/git-commit",
