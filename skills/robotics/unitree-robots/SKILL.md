@@ -20,14 +20,16 @@ The most common Unitree coding mistake is reaching for the wrong generation. G1 
 
 | Repo | What it is | Notes |
 | --- | --- | --- |
-| github.com/unitreerobotics/unitree_sdk2 | C++ SDK: low-level, high-level, video, lidar clients | Current. Prebuilt static libs for x86_64 and aarch64. |
-| github.com/unitreerobotics/unitree_sdk2_python | Official Python bindings | Install from source; PyPI names are ambiguous. |
-| github.com/unitreerobotics/unitree_ros2 | ROS2 message packages and examples | README robot list is stale: G1 and H1-2 examples exist in the repo. |
-| github.com/unitreerobotics/unitree_ros | ROS1/Gazebo simulation and URDF descriptions | `robots/g1_description` (URDF/MJCF) lives here. |
-| huggingface.co/datasets/unitreerobotics/unitree_model | URDF/MJCF/USD model assets | The GitHub unitree_model repo is deprecated; this is the current home. |
-| github.com/unitreerobotics/unitree_mujoco | MuJoCo simulator speaking the same DDS topics | Sim-to-real path. Sim runs DDS domain 1 to avoid colliding with a live robot on domain 0. |
-| github.com/unitreerobotics/unitree_rl_gym | Isaac-Gym RL training (G1, H1, Go2) | Older stack. |
-| github.com/unitreerobotics/unitree_rl_lab | Isaac-Lab RL training (G1 29-DOF) | Newer stack. |
+| [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2) | C++ SDK: low-level, high-level, video, lidar clients | Current. Prebuilt static libs for x86_64 and aarch64. |
+| [unitree_sdk2_python](https://github.com/unitreerobotics/unitree_sdk2_python) | Official Python bindings | Install from source; PyPI names are ambiguous. |
+| [unitree_ros2](https://github.com/unitreerobotics/unitree_ros2) | ROS2 message packages and examples | README robot list is stale: G1 and H1-2 examples exist in the repo. |
+| [unitree_ros](https://github.com/unitreerobotics/unitree_ros) | ROS1/Gazebo simulation and URDF descriptions | `robots/g1_description` (URDF/MJCF) lives here. |
+| [unitree_model on Hugging Face](https://huggingface.co/datasets/unitreerobotics/unitree_model) | URDF/MJCF/USD model assets | The GitHub unitree_model repo is deprecated; this is the current home. |
+| [unitree_mujoco](https://github.com/unitreerobotics/unitree_mujoco) | MuJoCo simulator speaking the same DDS topics | Sim-to-real path. Sim runs DDS domain 1 to avoid colliding with a live robot on domain 0. |
+| [unitree_rl_gym](https://github.com/unitreerobotics/unitree_rl_gym) | Isaac-Gym RL training (G1, H1, Go2) | Older stack. |
+| [unitree_rl_lab](https://github.com/unitreerobotics/unitree_rl_lab) | Isaac-Lab RL training (G1 29-DOF) | Newer stack. |
+| [unitree_slam](https://github.com/unitreerobotics/unitree_slam) | SLAM and navigation example clients (`rt/qt_command` protocol) | Robot-side service, not part of unitree_sdk2. |
+| [teleimager](https://github.com/unitreerobotics/teleimager) | Camera streaming server (ZMQ and WebRTC) | Runs on the robot dev PC; replaces the older image_server.py. |
 
 ## IDL namespaces
 
@@ -80,4 +82,10 @@ Ubuntu 20.04 LTS, x86_64 and aarch64. Windows and macOS are not supported by the
 
 ## What to defer to the web
 
-Release tags, changelogs, firmware downloads, PyPI naming, and README claims drift over time. Check the repos above instead of hard-coding versions from memory. Deep reference material (full manuals, torque tables, RL training configs) also lives behind the links above, not in this skill.
+Release tags, changelogs, firmware downloads, PyPI naming, and README claims drift over time. Fetch the live sources instead of trusting cached values:
+
+- [G1 developer docs](https://support.unitree.com/home/en/G1_developer/about_G1) and [G1D developer docs](https://support.unitree.com/home/en/G1D_Developer/)
+- [SDK downloads](https://support.unitree.com/home/en/developer/Obtain%20SDK)
+- The repo map above: each README is the current truth for install steps and supported robots
+
+Deep reference material (full manuals, torque tables, RL training configs) also lives behind those links, not in this skill.

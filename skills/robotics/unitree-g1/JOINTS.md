@@ -122,4 +122,4 @@ Only indices 15-28 are populated; 0-14 are empty.
 | 5 | index_0 |
 | 6 | index_1 |
 
-Sources: support.unitree.com/home/en/G1_developer/joint_motor_sequence, support.unitree.com/home/en/G1_developer/about_G1.
+Sources: [joint_motor_sequence](https://support.unitree.com/home/en/G1_developer/joint_motor_sequence) and [about_G1](https://support.unitree.com/home/en/G1_developer/about_G1) on the official support site; fetch them for current values.

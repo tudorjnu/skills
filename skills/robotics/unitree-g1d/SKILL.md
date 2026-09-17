@@ -41,21 +41,35 @@ The motor array is still 29 slots (`G1D_NUM_MOTOR = 29`), but the leg slots are 
 | 15-21 | Left arm: shoulder pitch, shoulder roll, shoulder yaw, elbow, wrist roll, wrist pitch, wrist yaw |
 | 22-28 | Right arm: same order |
 
-From `example/g1/g1d/g1d_arm_example.cpp`, which also shows default gains: waist Kp 60 / Kd 1, arms Kp 40 / Kd 1.
+From `example/g1/g1d/g1d_arm_example.cpp`, whose example gains (tunings, not API limits) are waist Kp 60 / Kd 1, arms Kp 40 / Kd 1. Full per-interface details: [INTERFACES.md](INTERFACES.md).
 
 ### AGV base and column: AgvClient
 
 `unitree::robot::g1::AgvClient`, service name `agv`, API version 1.0.0.1:
 
-- `Move(vx, vy, vyaw)`, API ID 1001: vx in [-1.5, 1.5] m/s, vyaw in [-0.6, 0.6] rad/s.
-- `HeightAdjust(vz)`, API ID 1002: vz in [-1.0, 1.0] maps linearly to column speed ±76.5 mm/s.
-- Column height feedback: `rt/hispeed_state` (`geometry_msgs::msg::dds_::Point32_`), height in the `y` field.
+- `Move(vx, vy, vyaw)`, API ID 1001: vx in [-1.5, 1.5] m/s, vyaw in [-0.6, 0.6] rad/s (positive = counter-clockwise); vy is ignored on the wheeled base; `Move(0, 0, 0)` stops.
+- `HeightAdjust(vz)`, API ID 1002: vz in [-1.0, 1.0] maps linearly to column speed ±76.5 mm/s. It is a velocity command, not a position command: reach and hold heights with a feedback loop on the telemetry below.
+- Column height feedback: `rt/hispeed_state` (`geometry_msgs::msg::dds_::Point32_`), height in the `y` field. The official height-control example closes the loop at 50 ms with kP 20, kD 0.3, and sends `HeightAdjust(0)` on arrival.
 
 ### Official examples (example/g1/g1d in unitree_sdk2)
 
 - `g1_agv_client_example.cpp`: periodic base and column motion.
 - `g1d_arm_example.cpp`: low-level 29-slot arm control.
 - `g1d_height_control.cpp`: PD column positioning using `rt/hispeed_state`.
+- `g1d_waist_example.cpp`: direct waist-pitch control over `rt/waistpitchcmd` / `rt/waistpitchstate`.
+
+## Interface map
+
+The G1D_Developer docs cover six control surfaces. Exact names and gotchas for each: [INTERFACES.md](INTERFACES.md). This is the map:
+
+| Interface | Entry point | Where |
+| --- | --- | --- |
+| Joint control (arms, waist) | `rt/lowcmd` / `rt/lowstate`; direct waist: `rt/waistpitchcmd` / `rt/waistpitchstate` | example/g1/g1d |
+| Move (base + column) | `g1::AgvClient`, service `agv` | example/g1/g1d |
+| Audio (TTS, ASR, volume, LED) | `g1::AudioClient`, service `voice` | example/g1/audio |
+| SLAM / navigation | `rt/qt_command` protocol via the unitree_slam repo; no typed SDK client | unitree_slam |
+| Image server (cameras) | TeleImager running on the dev PC (192.168.123.164) | teleimager repo |
+| Chassis interfaces (remote data) | `LowState_.wireless_remote[40]` + `unitree::common::Gamepad` | example/g1/g1d/gamepad.hpp |
 
 ## Hands
 
@@ -83,11 +97,14 @@ Dex3-1 hands use the 7-motor topics `rt/dex3/{left,right}/{cmd,state}` (`HandCmd
 | Assuming a native G1D ROS2 package | No official G1D ROS2 node; the same DDS topics are reachable via unitree_ros2 packages with the CycloneDDS RMW |
 | Mixing hand interfaces | Dex3-1: `rt/dex3/...`; 4-motor path: `rt/hand_sdk` |
 | Treating all SKUs as identical | U1/U6-U10 differ in hand, compute, mobility |
+| `rt/wireless_controller` for the G1D remote (that is a Go2 topic) | Decode `LowState_.wireless_remote[40]` with the `Gamepad` helper (example/g1/g1d/gamepad.hpp) |
+| `HeightAdjust` as a position command | Velocity only; run a feedback loop on `rt/hispeed_state` |
+| Inventing audio or SLAM clients inside unitree_sdk2 | Audio is `g1::AudioClient` (service `voice`); SLAM is a robot-side service driven over `rt/qt_command` (unitree_slam repo) |
 
 ## Maturity and pointers
 
-G1D documentation is still filling in: there is a G1D_Developer section on the support site, G1D code in unitree_sdk2 (`example/g1/g1d`, `include/unitree/robot/g1/agv`), and product listings, but no public G1D-specific user manual and no dedicated ROS2 node. For anything version-sensitive (firmware, SKU details, prices, availability), check these rather than relying on cached knowledge:
+G1D documentation is still filling in: there is a G1D_Developer section on the support site, G1D code in unitree_sdk2 (`example/g1/g1d`, `include/unitree/robot/g1/agv`), and product listings, but no public G1D-specific user manual and no dedicated ROS2 node. For anything version-sensitive (firmware, SKU details, prices, availability), fetch these links rather than relying on cached knowledge.
 
-- <https://support.unitree.com/home/en/G1D_Developer/>
-- <https://github.com/unitreerobotics/unitree_sdk2/tree/main/example/g1/g1d>
-- <https://github.com/unitreerobotics/unitree_sdk2/blob/main/include/unitree/robot/g1/agv/g1_agv_api.hpp>
+Official G1D_Developer pages, one per interface: [about](https://support.unitree.com/home/en/G1D_Developer/about), [joint control](https://support.unitree.com/home/en/G1D_Developer/joint%20control), [move](https://support.unitree.com/home/en/G1D_Developer/move), [audio](https://support.unitree.com/home/en/G1D_Developer/audio), [slam](https://support.unitree.com/home/en/G1D_Developer/slam), [image_server](https://support.unitree.com/home/en/G1D_Developer/image_server), [chasis_interfaces](https://support.unitree.com/home/en/G1D_Developer/chasis_interfaces) (Unitree's own URL spelling).
+
+Code entry points: unitree_sdk2 [example/g1/g1d](https://github.com/unitreerobotics/unitree_sdk2/tree/main/example/g1/g1d) and [example/g1/audio](https://github.com/unitreerobotics/unitree_sdk2/tree/main/example/g1/audio), [unitree_slam](https://github.com/unitreerobotics/unitree_slam), [teleimager](https://github.com/unitreerobotics/teleimager).

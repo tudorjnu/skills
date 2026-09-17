@@ -84,6 +84,22 @@ Before publishing `rt/lowcmd`, stop the internal motion service: `MotionSwitcher
 
 ## Pointers
 
-- Official docs: support.unitree.com G1 developer section: about_G1 (identity, specs, limits), joint_motor_sequence (canonical joint tables), basic_motion_development (debug mode, release rule), ros2_communication_routine (network setup).
-- SDK: github.com/unitreerobotics/unitree_sdk2, `example/g1/` (loco_client, arm5/arm7, ankle_swing, dual_arm, dex3, audio examples).
-- Firmware behavior, factory images, torque recipes, and pricing drift: check the support site rather than hard-coding.
+Fetch these when facts may have drifted (firmware behavior, limits, releases, downloads) rather than trusting cached values:
+
+| Link | For |
+| --- | --- |
+| [about_G1](https://support.unitree.com/home/en/G1_developer/about_G1) | Identity, specs, joint limits |
+| [joint_motor_sequence](https://support.unitree.com/home/en/G1_developer/joint_motor_sequence) | Canonical joint tables, Dex3-1 hand order |
+| [sdk_overview](https://support.unitree.com/home/en/G1_developer/sdk_overview) | SDK scope and middleware |
+| [basic_motion_development](https://support.unitree.com/home/en/G1_developer/basic_motion_development) | Debug mode, release rule, command-conflict warnings |
+| [motion_witcher_service_interface](https://support.unitree.com/home/en/G1_developer/motion_witcher_service_interface) | MotionSwitcherClient API and error codes |
+| [ros2_communication_routine](https://support.unitree.com/home/en/G1_developer/ros2_communication_routine) | Network and CycloneDDS setup |
+| [G1 FAQ](https://support.unitree.com/home/en/G1_developer/FAQ) | Firmware notes, factory images, recalibration |
+| [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2) / [example/g1](https://github.com/unitreerobotics/unitree_sdk2/tree/main/example/g1) | C++ SDK and G1 examples (loco_client, arm5/arm7, ankle_swing, dual_arm, dex3, audio) |
+| [unitree_sdk2_python](https://github.com/unitreerobotics/unitree_sdk2_python) | Python bindings |
+| [unitree_ros2](https://github.com/unitreerobotics/unitree_ros2) | ROS2 packages and G1 examples |
+| [g1_description](https://github.com/unitreerobotics/unitree_ros/tree/master/robots/g1_description) | URDF/MJCF variants |
+| [G1 user manual (MYBOTSHOP)](https://www.docs.mybotshop.de/downloads/G1_User_Manual.pdf) | Operations, safety, button maps |
+| [NVIDIA Isaac ROS G1 bridge](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_robots/unitree_g1_bridge/index.html) | Third-party bridge; source of the FSM 200 report |
+
+Firmware behavior, factory images, torque recipes, and pricing drift: fetch the pages above rather than hard-coding.
