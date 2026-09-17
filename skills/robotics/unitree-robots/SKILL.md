@@ -63,9 +63,17 @@ cd unitree_sdk2_python && pip3 install -e .
 
 PyPI has packages named unitree-sdk2 and unitree-sdk2py, but naming is ambiguous; source install is the reproducible path.
 
-## Platform support
+## Platform support and environment discipline
 
-Ubuntu 20.04 LTS, x86_64 and aarch64. Windows and macOS are not supported by the official SDK.
+The officially supported SDK platform is Ubuntu 20.04 LTS, x86_64 and aarch64; Windows and macOS are not supported. In practice the Ubuntu target is the robot's onboard dev PC: the G1 EDU Jetson at 192.168.123.164 runs JetPack, so onboard setup over SSH uses Ubuntu commands.
+
+That is a statement about where the SDK is supported, not permission to run Ubuntu commands on whatever machine you are on:
+
+- Detect before acting: read `/etc/os-release` and `uname -m` before any system or package command, and use the package manager of the distro you actually find. Never assume apt.
+- Do not install things as a side effect of writing robot code. Installing the SDK, CycloneDDS, or system packages is a deliberate setup step: propose it, get the user's approval, and record it.
+- Commands intended for the robot's PC go over SSH to 192.168.123.164, not the local shell.
+- A non-Ubuntu workstation is unofficial territory: the Python SDK may work there if cyclonedds 0.10.2 can be built, but verify instead of assuming, and never resolve an OS mismatch by installing Ubuntu packages on a non-Ubuntu host.
+- If the repo has `docs/agents/robots.md` (written by /setup-robotics-skills), read it first: it records this workstation's actual OS and setup.
 
 ## Common mistakes
 
@@ -77,7 +85,8 @@ Ubuntu 20.04 LTS, x86_64 and aarch64. Windows and macOS are not supported by the
 | `unitree_go` types for a humanoid | `unitree_hg` types |
 | unitree_model on GitHub | Hugging Face dataset |
 | Trusting the unitree_ros2 README robot list | README is stale; G1 examples are in the repo |
-| Windows or macOS deploy target | Ubuntu 20.04 LTS only |
+| Assuming the workstation is Ubuntu | Detect the distro first (`/etc/os-release`); the Ubuntu target is the robot's Jetson over SSH |
+| Installing SDK or system packages mid-task | Deliberate setup: propose it, get approval, record it |
 | Skipping CycloneDDS setup | 0.10.2, domain 0, correct interface in CYCLONEDDS_URI |
 
 ## What to defer to the web

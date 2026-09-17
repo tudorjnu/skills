@@ -24,6 +24,7 @@ Read whatever exists; do not assume:
 - `docs/agents/robots.md`: does prior output already exist?
 - The Unitree skills: are `unitree-robots`, `unitree-g1`, and `unitree-g1d` installed under `~/.agents/skills/`? If not, say so and stop: run `scripts/link-skills.sh` in the skills repo first, then re-run. Record the install path you find; the AGENTS.md block points agents at it.
 - Robot signals: search the repo for `unitree`, `g1`, `lowcmd`, `cyclonedds`, `unitree_hg`, and `192.168.123` to see what it already touches.
+- Workstation: `cat /etc/os-release` and `uname -m` to record the distro, architecture, and package manager, and check whether `python3 -c "import cyclonedds"` and the SDK import. Do not assume this machine is Ubuntu just because the SDK targets it.
 
 ### 2. Present findings and ask
 
@@ -32,6 +33,8 @@ Lead with the recommended answer so the user can accept it in one word.
 **Robots in scope.** Which Unitree robots does this repo work with? Default to what the repo signals plus the user's answer. For each robot, confirm the variant that matters for code: G1 base 23-DOF, EDU 29-DOF, or 14-DOF upper body; G1D Standard fixed-base or Flagship wheeled. Ask for unit count, names, and IPs; blank cells are fine.
 
 **Network.** Which IP does the dev machine use on the robot subnet (default `192.168.123.99`), and which network interface?
+
+**Workstation.** Confirm the OS you detected and whether the SDK runs on this machine or only on the robot's PC. Record both so agents stop guessing: the SDK's Ubuntu 20.04 target is the robot's Jetson, not necessarily this workstation.
 
 ### 3. Confirm and edit
 
@@ -61,6 +64,7 @@ They are installed under `~/.agents/skills/`. Update them from the skills repo w
 
 Hard rules until the skills are loaded:
 
+- This workstation runs [OS from /etc/os-release]. Detect the OS before any system or package command, use that distro's package manager, and ask before installing anything. Ubuntu-only setup steps belong on the robot's Jetson (SSH 192.168.123.164).
 - G1 and G1D are different robots. G1 walks; G1D has a fixed or wheeled base and no leg actuators.
 - Never assume DOF counts or joint indices; read them from the robot (`mode_machine`) or the skill's joint tables.
 - On G1, low-level `rt/lowcmd` control requires `MotionSwitcherClient::ReleaseMode()` first.
