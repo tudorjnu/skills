@@ -6,13 +6,13 @@ These are small runbooks for engineering, productivity, and tooling. I edit them
 
 ## Install
 
-Link the skills into `~/.agents/skills`:
+Link the skills into `~/.agents/skills`, grouped by bucket:
 
 ```bash
 ./scripts/link-skills.sh
 ```
 
-Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `agents/openai.yaml`.
+Each skill lives in its own folder under `skills/` with a `SKILL.md` and an `agents/openai.yaml`. The install preserves the buckets, so skills land at `~/.agents/skills/<bucket>/<name>`; older flat installs are migrated automatically. Prefer this over the `npx skills` CLI for this repo: the CLI copies skills flat and loses the grouping.
 
 ## Buckets
 
