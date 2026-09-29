@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Resource Management"
+  short_description: "Context managers, cleanup, and streaming responses"

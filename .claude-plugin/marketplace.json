@@ -67,6 +67,28 @@
       ]
     },
     {
+      "name": "python",
+      "source": "./",
+      "skills": [
+        "./skills/languages/python/python-anti-patterns",
+        "./skills/languages/python/python-async-patterns",
+        "./skills/languages/python/python-background-jobs",
+        "./skills/languages/python/python-code-style",
+        "./skills/languages/python/python-configuration",
+        "./skills/languages/python/python-design-patterns",
+        "./skills/languages/python/python-error-handling",
+        "./skills/languages/python/python-observability",
+        "./skills/languages/python/python-packaging",
+        "./skills/languages/python/python-performance-optimization",
+        "./skills/languages/python/python-project-structure",
+        "./skills/languages/python/python-resilience",
+        "./skills/languages/python/python-resource-management",
+        "./skills/languages/python/python-testing-patterns",
+        "./skills/languages/python/python-type-safety",
+        "./skills/languages/python/python-uv"
+      ]
+    },
+    {
       "name": "robotics",
       "source": "./",
       "skills": [

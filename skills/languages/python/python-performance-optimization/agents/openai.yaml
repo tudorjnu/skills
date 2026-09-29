@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Performance Optimization"
+  short_description: "Profiling, bottleneck analysis, and memory patterns"

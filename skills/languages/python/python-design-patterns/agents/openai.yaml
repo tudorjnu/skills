@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Design Patterns"
+  short_description: "KISS, SRP, composition over inheritance, rule of three"

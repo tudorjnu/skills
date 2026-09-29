@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Anti-Patterns"
+  short_description: "Common mistakes checklist: what to avoid and the fix"

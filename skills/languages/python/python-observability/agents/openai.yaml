@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Observability"
+  short_description: "Structured logging, metrics, and distributed tracing"

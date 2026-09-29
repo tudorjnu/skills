@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Async Patterns"
+  short_description: "asyncio patterns: tasks, gather, timeouts, cancellation"

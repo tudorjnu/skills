@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Packaging"
+  short_description: "Building, versioning, and publishing packages to PyPI"

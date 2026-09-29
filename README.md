@@ -1,6 +1,6 @@
 # Skills
 
-My agent skills for pi. Forked from [Matt Pocock's skills](https://github.com/mattpocock/skills).
+My agent skills for pi. Forked from [Matt Pocock's skills](https://github.com/mattpocock/skills). The Python skills under `skills/languages/` are adapted from [wshobson/agents](https://github.com/wshobson/agents), MIT.
 
 These are small runbooks for engineering, productivity, and tooling. I edit them as I go.
 
@@ -24,6 +24,7 @@ The `npx skills` CLI groups this repo's skills by the plugin names in `.claude-p
 - [`skills/helpers/`](./skills/helpers/) - reusable agent capabilities.
 - [`skills/other/`](./skills/other/) - skills I have not found a home for yet.
 - [`skills/robotics/`](./skills/robotics/) - Unitree robot facts (G1, G1D, shared SDK stack) plus /setup-robotics-skills for wiring robot repos.
+- [`skills/languages/`](./skills/languages/) - per-language skills; each language subfolder is its own bucket (python/, rust/, ...), with language-prefixed skill names.
 
 ## Conventions
 

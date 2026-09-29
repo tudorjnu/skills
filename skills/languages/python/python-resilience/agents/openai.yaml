@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Resilience"
+  short_description: "Retries, backoff, timeouts, and circuit breakers"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Testing Patterns"
+  short_description: "pytest fixtures, mocking, markers, and coverage"

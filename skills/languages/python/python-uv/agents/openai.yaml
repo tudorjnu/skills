@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python uv"
+  short_description: "uv workflows: projects, deps, venvs, Python versions"

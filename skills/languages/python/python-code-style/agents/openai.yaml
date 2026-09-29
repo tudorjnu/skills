@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Code Style"
+  short_description: "PEP 8, naming, docstrings, and linting setup"

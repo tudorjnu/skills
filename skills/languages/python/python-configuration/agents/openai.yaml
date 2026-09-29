@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Configuration"
+  short_description: "Env vars, pydantic-settings, per-environment config"

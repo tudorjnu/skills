@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Background Jobs"
+  short_description: "Task queues, workers, and event-driven processing"
