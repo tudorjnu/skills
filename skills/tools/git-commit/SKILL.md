@@ -51,7 +51,35 @@ BREAKING CHANGE: `extends` key behavior changed
 
 ## Workflow
 
-### 1. Analyze the diff
+### 1. Verify commit identity
+
+Before committing, check the repository author identity:
+
+```bash
+git config user.name
+git config user.email
+```
+
+If both values are set and look reasonable, proceed. If either is missing, stop and ask the user:
+
+- "Copy global name and email into this repo's local config?" (only if `git config --global user.name` and `git config --global user.email` exist).
+- "Enter a custom name and email for this repo only."
+- "Use a one-off name and email for this commit only."
+
+For a one-off author, commit with:
+
+```bash
+GIT_AUTHOR_NAME="Name" GIT_AUTHOR_EMAIL="email@example.com" git commit -m "..."
+```
+
+For local repo config, use:
+
+```bash
+git config user.name "Name"
+git config user.email "email@example.com"
+```
+
+### 2. Analyze the diff
 
 ```bash
 # If files are staged, use staged diff
@@ -64,7 +92,7 @@ git diff
 git status --porcelain
 ```
 
-### 2. Stage files if needed
+### 3. Stage files if needed
 
 If nothing is staged or you want to group changes differently:
 
@@ -82,7 +110,7 @@ git add -p
 
 **Never commit secrets** (.env, credentials.json, private keys).
 
-### 3. Write the commit message
+### 4. Write the commit message
 
 Use the diff to determine:
 
@@ -90,7 +118,7 @@ Use the diff to determine:
 - **Scope**: What area/module is affected?
 - **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
 
-### 4. Commit
+### 5. Commit
 
 ```bash
 # Single line
@@ -117,7 +145,8 @@ EOF
 
 ## Git safety
 
-- NEVER update git config
+- NEVER update global git config without explicit request
+- Only update local repo git config after the user explicitly chooses that option
 - NEVER run destructive commands (--force, hard reset) without explicit request
 - NEVER skip hooks (--no-verify) unless user asks
 - NEVER force push to main/master
