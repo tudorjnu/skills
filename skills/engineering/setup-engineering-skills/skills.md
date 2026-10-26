@@ -16,10 +16,13 @@ The agent's environment already lists every installed skill. Reach for a skill b
 
 ## Use MCP servers
 
-MCP servers observed at setup time; availability can change between sessions. Verify before relying on one, and fall back to CLI equivalents.
+MCP servers are discovered dynamically. Do not list them statically here. At use time, check which servers are connected (`/mcp`, `pi mcp list`, or `searchTools`) and call the relevant tool. Only record persistent notes below, such as required scopes, sandbox workarounds, or unavailable servers.
 
-- **MCP servers**: [one per line — name plus one-line purpose, or "none observed"]
 - **Tracker MCP**: [name / none]. If a tracker MCP is available, prefer it over CLI commands; tracker-specific notes live in `docs/agents/issue-tracker.md`.
+
+### Persistent notes
+
+- [name / reason / workaround]
 
 ## Fallback
 

@@ -27,7 +27,7 @@ Read whatever exists; do not assume:
 - `docs/agents/`: does prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker is already in use
 - Monorepo signals: `pnpm-workspace.yaml`, `workspaces` in `package.json`, or populated `packages/*` with their own `src/`. These only appear in genuinely large multi-package repos; their absence means single-context, which is almost every repo.
-- **Environment**: does your harness support subagents? Which MCP servers are available, using whatever mechanism your harness provides (an MCP status tool, agent config files)? Note any MCP that touches issue tracking (GitHub, GitLab, Linear, Jira). MCP availability is session state, so treat it as observed-at-setup, never as a hard dependency.
+- **Environment**: does your harness support subagents? Note any MCP that touches issue tracking (GitHub, GitLab, Linear, Jira). Only record **persistent** MCP notes in `docs/agents/skills.md`: required scopes, sandbox workarounds, or unavailable servers. Do not list connected servers statically — they are discovered at use time.
 - **Do not list installed skills**: the agent's environment already provides that list. `docs/agents/skills.md` should encourage using those skills, not enumerate them.
 
 ### 2. Present findings and ask
@@ -92,7 +92,7 @@ Then write the docs files from the seed templates in this skill folder:
 - [issue-tracker-gitlab.md](./issue-tracker-gitlab.md)
 - [issue-tracker-local.md](./issue-tracker-local.md)
 - [domain.md](./domain.md)
-- [skills.md](./skills.md) — keep the guidance about using skills, subagents, and MCPs; fill in the environment observations only
+- [skills.md](./skills.md) — guidance on using skills, subagents, and MCPs; fill in subagent availability and persistent MCP notes only
 
 For "other" trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
