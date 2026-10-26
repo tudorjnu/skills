@@ -1,6 +1,6 @@
 ---
 name: setup-engineering-skills
-description: "Configure this repo for the engineering skills: set up its issue tracker and domain doc layout. Run once before first use of the other engineering skills."
+description: "Configure this repo for the engineering skills: set up its issue tracker and domain doc layout, and record how to use the agent's skills, subagents, and MCPs. Run once before first use of the other engineering skills."
 disable-model-invocation: true
 ---
 
@@ -10,6 +10,7 @@ Create the per-repo config the engineering skills expect:
 
 - **Issue tracker**: where issues live
 - **Domain docs**: where `CONTEXT.md` and ADRs live, and how to read them
+- **Skills and environment**: how to use the agent's skills, subagents, and MCPs, plus environment capabilities observed at setup
 
 This is prompt-driven, not scripted. Explore, summarize, confirm, then write.
 
@@ -26,6 +27,8 @@ Read whatever exists; do not assume:
 - `docs/agents/`: does prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker is already in use
 - Monorepo signals: `pnpm-workspace.yaml`, `workspaces` in `package.json`, or populated `packages/*` with their own `src/`. These only appear in genuinely large multi-package repos; their absence means single-context, which is almost every repo.
+- **Environment**: does your harness support subagents? Which MCP servers are available, using whatever mechanism your harness provides (an MCP status tool, agent config files)? Note any MCP that touches issue tracking (GitHub, GitLab, Linear, Jira). MCP availability is session state, so treat it as observed-at-setup, never as a hard dependency.
+- **Do not list installed skills**: the agent's environment already provides that list. `docs/agents/skills.md` should encourage using those skills, not enumerate them.
 
 ### 2. Present findings and ask
 
@@ -44,7 +47,9 @@ Default to GitHub if `git remote` points there. Default to GitLab if it points t
 - **Local markdown**: files under `.scratch/<feature>/` in this repo (good for solo projects or repos without a remote)
 - **Other** (Jira, Linear, etc.): the user describes the workflow in one paragraph; record it as freeform prose
 
-Record the choice in `docs/agents/issue-tracker.md`.
+If exploration found an MCP server for one of these trackers (GitHub, GitLab, Linear, Jira), say so when presenting this section — it makes that option turnkey.
+
+Record the choice in `docs/agents/issue-tracker.md`. If a tracker MCP is available, append a short **MCP** note to that doc: prefer MCP tools when available, fall back to the CLI commands.
 
 **Section C: Domain docs.** Default to **single-context**: one `CONTEXT.md` and `docs/adr/` at the repo root. This fits almost every repo; write it without asking.
 
@@ -55,7 +60,7 @@ Offer **multi-context** (root `CONTEXT-MAP.md` pointing to per-context `CONTEXT.
 Show the user a draft of:
 
 - The `## Agent skills` block to add to `AGENTS.md` at the repo root
-- The contents of `docs/agents/issue-tracker.md` and `docs/agents/domain.md`
+- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/skills.md`
 
 Let them edit before writing.
 
@@ -75,6 +80,10 @@ The block:
 ### Domain docs
 
 [one-line summary: "single-context" or "multi-context"]. See `docs/agents/domain.md`.
+
+### Skills and environment
+
+How to use skills, subagents, and MCPs, plus environment capabilities (MCP servers, subagents) observed at setup. See `docs/agents/skills.md`.
 ```
 
 Then write the docs files from the seed templates in this skill folder:
@@ -83,6 +92,7 @@ Then write the docs files from the seed templates in this skill folder:
 - [issue-tracker-gitlab.md](./issue-tracker-gitlab.md)
 - [issue-tracker-local.md](./issue-tracker-local.md)
 - [domain.md](./domain.md)
+- [skills.md](./skills.md) — keep the guidance about using skills, subagents, and MCPs; fill in the environment observations only
 
 For "other" trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
@@ -92,6 +102,7 @@ Tell the user setup is complete and which skills will read these files. They can
 
 ## How the engineering skills work
 
+- Use skills, subagents, and MCPs actively. `docs/agents/skills.md` records environment capabilities observed at setup and reminds the agent to prefer a relevant skill over reinventing its logic.
 - Use subagents for parallel work or whenever a separate context window would help.
 - Read `CONTEXT.md` and ADRs before touching code in an area.
 - Stop and ask on architectural decisions; do not decide them silently.
