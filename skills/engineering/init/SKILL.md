@@ -1,48 +1,71 @@
 ---
 name: init
-description: "Use when you start work in a repo that has not been prepared, or when the user says 'set up this repo', 'init', 'get started here', or 'onboard'. Checks the repo setup, runs setup if needed, then maps the project structure, domain language, and open work."
+description: "Start work in a repo: check it is set up, load its config and structure, and report anything stale. Read-only."
 disable-model-invocation: true
 ---
 
 # Init
 
-Prepare the repo for engineering work.
+Run this at the start of a session. It reads; it never writes. Reconciling the config belongs to `/setup-engineering-skills`.
 
-## 1. Check setup
+## 1. Markers
 
-Look for these markers:
+Check for:
 
 - `AGENTS.md` at the repo root
 - `docs/agents/issue-tracker.md`
 - `docs/agents/domain.md`
-- `CONTEXT.md` or `CONTEXT-MAP.md`
+- `docs/agents/testing.md`
+- `docs/agents/skills.md`
 
-If any are missing, tell the user to run `/setup-engineering-skills` first. This skill cannot run it for you because both are user-invoked.
+If any are missing, stop and tell the user to run `/setup-engineering-skills`. Do not continue: orienting against a half-configured repo produces advice built on guesses.
 
-## 2. Map the project
+`CONTEXT.md` is not a marker. `/domain-modeling` creates it lazily, so a correctly configured repo may not have one. Read it in step 2 when it is there.
 
-If setup is in place, spawn a subagent to explore the repo and return a compact summary:
+## 2. Orient
 
-- **Structure**: top-level directories, entry points, main modules, build/test commands.
-- **Tech stack**: languages, frameworks, package manager, database, deployment signals.
-- **Domain language**: existing terms in `CONTEXT.md`/glossary; note any gaps or contradictions.
-- **Open work**: open tickets/specs in the issue tracker; recent commits; any in-progress branches or PRs.
-- **Risks**: missing tests, unclear seams, large files, heavy dependencies, anything that looks like it would slow work down.
+**Brief, the default.** Read only what someone wrote down on purpose:
 
-The subagent should read only what it needs; do not dump every file.
+- `AGENTS.md`
+- `CONTEXT.md` when it exists, and `docs/agents/*.md`
+- `README.md`
+- the manifest or build file (`package.json`, `pyproject.toml`, `Makefile`, `go.mod`)
+- a two-level directory listing
 
-## 3. Present the summary
+**Deep, when the user asks or the task needs it.** Spawn a subagent to explore and return:
 
-Report back in a short, scannable form. Do not change any files in the repo.
+- Entry points and main modules
+- Build and test commands
+- Domain terms missing from `CONTEXT.md`, and contradictions between them
+- Open work in the tracker, and any in-progress branches
+- Risks: unclear seams, missing tests, large files, heavy dependencies
+
+The subagent reads only what it needs. Do not dump files.
+
+## 3. Report drift
+
+Compare what the config claims against the repo:
+
+- Every path the config says setup created exists.
+- Paths the config marks as created later are not drift: ADR directories, `CONTEXT.md`, and `.scratch/` before the first ticket.
+- Every command it names exists: a manifest script, or a binary on `PATH`.
+- The recorded tracker answers: `gh` or `glab` authenticated for GitHub or GitLab. For a tracker recorded as other, skip the probe and say so.
+
+Report each mismatch as the claim, the evidence, and the status. Say "no drift" when there is none. Do not fix anything: a mismatch is a fact to report, and guessing the correction is how the config drifts further.
+
+## 4. Present
 
 ```
 Repo: {name}
-Stack: {brief}
-Entry points: {list}
+Stack: {from the manifest}
+Entry points: {from the manifest or README, or "not mapped"}
 Domain terms: {list or "none yet"}
-Open work: {count + links, or "none"}
-Risks: {list or "none obvious"}
+Tracker: {github | gitlab | local | other}
+Testing: {one line from docs/agents/testing.md, or "not recorded"}
+Drift: {list, or "none"}
 Next: {suggested next step}
 ```
 
-End with a suggested next step. If there is open work, ask whether to pick one up. If not, ask what the user wants to build.
+End with the suggested next step. If there is drift, tell the user to run `/setup-engineering-skills` to reconcile it. If open work turned up, ask whether to pick one up. Otherwise ask what they want to build.
+
+The deep pass fills in entry points, domain terms, and open work. On the brief pass those stay thin; say which fields are thin rather than inventing them.

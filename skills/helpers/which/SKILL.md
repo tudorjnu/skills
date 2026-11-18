@@ -23,7 +23,7 @@ Pick the most relevant skill from the current setup and explain why:
 
 | Situation | Skill |
 | --- | --- |
-| New repo, onboarding | `/init` |
+| New repo, or the start of a session | `/init` |
 | "I want to build/change something" but unclear how | `/brainstorm` |
 | Want to design or change an API surface | `/api-design` |
 | Need to create a visual direction before building UI | `/design-direction` |

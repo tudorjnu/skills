@@ -33,7 +33,7 @@ Look for the originating spec, in this order:
 
 ### 3. Identify the standards sources
 
-Find repo files that document how code should be written, such as `CODING_STANDARDS.md` or `CONTRIBUTING.md`.
+Find repo files that document how code should be written, such as `CODING_STANDARDS.md` or `CONTRIBUTING.md`. If `docs/agents/testing.md` exists, it is also a standards source: it records what evidence a change must carry.
 
 The Standards axis also uses the **smell baseline** below: Fowler code smells from _Refactoring_, chapter 3. It applies even when the repo documents no standards. Two rules control it:
 
@@ -61,7 +61,7 @@ Each smell reads _what it is_ → _how to fix_; match it against the diff:
 
 - The full diff command and commit list.
 - The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full (the sub-agent has no other access to it).
-- The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); (b) any baseline smell you spot: name it and quote the hunk; and (c) changed behaviour with no accompanying test change, unless the diff, the spec, or `docs/agents/testing.md` says why; item (c) is a judgement call unless `docs/agents/testing.md` states the rule. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** should include:
 

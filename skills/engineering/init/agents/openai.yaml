@@ -1,5 +1,5 @@
 interface:
   display_name: "Init"
-  short_description: "Prepare a repo for engineering work"
+  short_description: "Load a repo's setup and report drift"
 policy:
   allow_implicit_invocation: false

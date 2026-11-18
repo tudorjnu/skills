@@ -6,7 +6,7 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 
 ### Starting work
 
-- [`/init`](./skills/engineering/init/SKILL.md) when you start in a new repo.
+- [`/init`](./skills/engineering/init/SKILL.md) at the start of a session: checks setup, loads the config and structure, and reports drift.
 - [`/brainstorm`](./skills/engineering/brainstorm/SKILL.md) when the user wants to build or change something and the path is unclear.
 - [`/setup-engineering-skills`](./skills/engineering/setup-engineering-skills/SKILL.md) if the repo has no `AGENTS.md` or `docs/agents/` config.
 
@@ -35,7 +35,7 @@ This repo uses skills from [tudorjnu/skills](https://github.com/tudorjnu/skills)
 
 ### Testing
 
-Do not write tests by default. Tests are deliberate investments, not ceremony. Write them when the user asks, when the seam is clear and stable, or when using [`/tdd`](./skills/engineering/tdd/SKILL.md). Do not add tests just to satisfy a checklist.
+Do not write tests by default. Tests are commitments, not ceremony. Use [`/testing`](./skills/engineering/testing/SKILL.md) to decide whether a promise deserves a test and which seam checks it. Do not add tests just to satisfy a checklist.
 
 ### Manual operations
 
